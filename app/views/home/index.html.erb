@@ -1,1 +1,18 @@
-home#index page
+<h1>Home Page </h1>
+
+<div>
+  <% @locations.each do |location| %>
+  <%= link_to location.name, location_path(location) %> <br>
+  City: <%= location.city %> <br>
+  Description: <%= location.description %> <br>
+  <%= image_tag(location.image) %> <br> <br><br>
+  <% end %>
+</div>
+
+<div>
+  <% @events.each do |event| %>
+    Event:<%= link_to event.name, location_event_path(event.location, event) %> <br>
+    Date: <%= event.date %> <br>
+    Capacity: <%= event.capacity.to_i %> <br> <br> <br>
+  <% end %>
+</div>

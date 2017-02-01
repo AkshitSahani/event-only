@@ -1,1 +1,19 @@
-locations#show page
+<h1><%=@location.name%></h1>
+
+<%= link_to "Edit", edit_location_path %> |
+
+<%= link_to "Delete", location_path, method: :delete, data: {confirm: "Are you sure you want to delete the location '#{@location.name}'? This cannot be undone!"}%>
+
+<h3> <%= link_to "Create an Event", new_location_event_path(@location) %> </h3>
+
+<%= render @location %>
+
+<h2> <%= link_to "Events", location_events_path(@location) %> </h2>
+
+<div>
+  <% @events.each do |event| %>
+    Event: <%= link_to event.name, location_event_path(@location, event) %> <br>
+    Date: <%= event.date %> <br>
+    Capacity: <%= event.capacity.to_i %> <br> <br> <br>
+  <% end %>
+</div>

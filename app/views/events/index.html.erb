@@ -1,0 +1,9 @@
+<h1> All Events </h1>
+
+<%= link_to "Back to locations", locations_path %> <br> <br>
+
+<% @events.each do |event| %>
+  Name: <%= link_to event.name, location_event_path(@location, event) %> <br>
+  Date: <%= event.date %> <br>
+  Capacity: <%= event.capacity.to_i %> <br> <br> <br>
+<% end %>
